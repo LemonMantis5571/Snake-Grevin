@@ -2,6 +2,10 @@
 
 import pygame
 import pygame.locals
+import pygame.key
+import pygame.event
+import pygame.time
+import pygame.display
 import time
 import random
 
@@ -163,28 +167,28 @@ class Game:
 
         while running:
             for event in pygame.event.get():
-                if event.type == KEYDOWN:
-                    if event.key == K_ESCAPE:
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_ESCAPE:
                         running = False
 
-                    if event.key == K_RETURN:
+                    if event.key == pygame.K_RETURN:
                         pygame.mixer.music.unpause()
                         pause = False
 
                     if not pause:
-                        if event.key == K_UP:
+                        if event.key == pygame.K_UP:
                             self.snake.move_up()
 
-                        if event.key == K_DOWN:
+                        if event.key == pygame.K_DOWN:
                             self.snake.move_down()
 
-                        if event.key == K_LEFT:
+                        if event.key == pygame.K_LEFT:
                             self.snake.move_left()
 
-                        if event.key == K_RIGHT:
+                        if event.key == pygame.K_RIGHT:
                             self.snake.move_right()
 
-                elif event.type == QUIT:
+                elif event.type == pygame.QUIT:
                     running = False
             try:
 
